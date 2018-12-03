@@ -1,0 +1,53 @@
+size(680, 680);
+background(39);
+noStroke();
+
+// string
+color(255, 155, 55);
+hex(255, 0);
+noFill();
+strokeWeight(3);
+stroke(0, 0, 0);
+bezier(340, 255,
+  310, 385,
+  370, 450,
+  340, 500);
+
+colorMode(HSB, 100, 100, 300);
+strokeWeight(3);
+stroke(255, 255, 255);
+
+// top small
+colorMode(RGB, 255, 100, 0);
+fill(255, 255, 255);
+arc(360, 30, 150, 150, 0, radians(90));
+
+// top big
+colorMode(RGB, 0, 0, 255);
+fill(255, 255, 255);
+arc(340, 120, 200, 200, 0, radians(270));
+
+// top triangle
+colorMode(RGB, 255, 100, 0);
+fill(255, 255, 255);
+triangle(340, 225, 310, 255, 370, 255);
+
+
+colorMode(HSB, 100, 300, 100);
+strokeWeight(3);
+stroke(255, 255, 255);
+
+// bottom big
+colorMode(RGB, 0, 0, 255);
+fill(255, 255, 255);
+arc(340, 590, 150, 150, 0, radians(180));
+
+// bottom small
+colorMode(RGB, 255, 100, 0);
+fill(255, 255, 255);
+arc(340, 530, 100, 100, 0, radians(180));
+
+// bottom triangle
+colorMode(RGB, 0, 0, 255);
+fill(255, 255, 255);
+triangle(340, 525, 320, 500, 360, 500);
