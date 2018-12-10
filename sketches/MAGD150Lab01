@@ -1,0 +1,27 @@
+size(128, 128);
+background(100);
+
+strokeWeight(4);
+point(63, 105);
+
+strokeWeight(10);
+point(63, 95);
+
+stroke(55);
+ellipse(30,30,20,20);
+
+fill(35);
+ellipseMode(CORNER);
+ellipse(100,100,30,30);
+
+noFill();
+rect(54, 35, 20, 40);
+
+stroke(20);
+rect(61, 85, 5, 3);
+
+strokeWeight(3);
+line(78, 30, 65, 10);
+
+strokeWeight(3);
+line(51, 30, 65, 10);
