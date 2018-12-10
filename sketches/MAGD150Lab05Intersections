@@ -1,0 +1,97 @@
+int circleX, circleY;
+int rectX, rectY;
+int circleSize = 50;
+int rectSize = 50; 
+color circleColor, rectColor, baseColor;
+color circleHighlight, rectHighlight;
+color currentColor;
+boolean circleOver = false;
+boolean rectOver = false;
+
+void setup() {
+  size(500, 300);
+  rectColor = color(50, 0, 50);
+  circleColor = color(255, 255, 0);
+  baseColor = color(76);
+  currentColor = baseColor;
+  circleX = width/2+circleSize/2+10;
+  circleY = height/2;
+  rectX = width/2-rectSize-10;
+  rectY = height/2-rectSize/2;
+  ellipseMode(CENTER);
+}
+
+void draw() {
+
+  update(mouseX, mouseY);
+  background(currentColor);
+  
+  if (rectOver) {
+    fill(rectHighlight);
+  } else {
+    fill(rectColor);
+    ellipse(450, 230, 50, 50);
+    ellipse(360, 190, 60, 60);
+    ellipse(420, 80, 70, 70);
+    textSize(10);
+   text("purple", 255, 155);
+    fill(50, 0, 50);
+  }
+  stroke(255, 255, 0);
+  rect(rectX, rectY, rectSize, rectSize);
+  
+  if (circleOver) {
+    fill(circleHighlight);
+  } else {
+    fill(circleColor);
+    rect(50, 50, 50, 50);
+    rect(100, 150, 70, 70);
+    rect(20, 200, 60, 60);
+     textSize(10);
+   text("yellow", 200, 155);
+    fill(255, 255, 0);
+    
+  }
+  stroke(50, 0, 50);
+  ellipse(circleX, circleY, circleSize, circleSize);
+}
+
+void update(int x, int y) {
+  if ( overCircle(circleX, circleY, circleSize) ) {
+    circleOver = true;
+    rectOver = false;
+  } else if ( overRect(rectX, rectY, rectSize, rectSize) ) {
+    rectOver = true;
+    circleOver = false;
+  } else {
+    circleOver = rectOver = false;
+  }
+}
+
+void mousePressed() {
+  if (circleOver) {
+    currentColor = circleColor;
+  }
+  if (rectOver) {
+    currentColor = rectColor;
+  }
+}
+
+boolean overRect(int x, int y, int width, int height)  {
+  if (mouseX >= x && mouseX <= x+width && 
+      mouseY >= y && mouseY <= y+height) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+boolean overCircle(int x, int y, int diameter) {
+  float disX = x - mouseX;
+  float disY = y - mouseY;
+  if (sqrt(sq(disX) + sq(disY)) < diameter/2 ) {
+    return true;
+  } else {
+    return false;
+  }
+}
